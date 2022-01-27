@@ -11,6 +11,9 @@ const Home = () => {
   const [ categories, setCategories ] = useState([]) 
   const [ areas, setAreas ] = useState([])
   const [ recipes, setRecipes ] = useState([])
+  const [ filterRecipesDisplay, setFilterRecipesDisplay ] = useState([])
+
+  let recipesFiltered
 
   // const [ categoryFilter, setCategoryFilter ] = useState([])
   // const [ areaFilter, setAreaFilter ] = useState([])
@@ -117,6 +120,39 @@ const Home = () => {
     }
   }
 
+  useEffect(() => {
+    
+    if (recipes.length && ( typeChosen.length || cuisineChosen.length )) {
+      
+      const appliedFilters = recipes.filter(item => {
+        return (
+          (item.strCategory === typeChosen || typeChosen === 'All Types') &&
+          (item.strArea === cuisineChosen || cuisineChosen === 'All Cuisines')
+        )
+      })
+      console.log(appliedFilters)
+      setFilterRecipesDisplay(appliedFilters)
+      console.log(appliedFilters)
+    }
+  }, [recipes, cuisineChosen, typeChosen])
+
+  // useEffect(() => {
+  //   if (cuisineChosen === 'All Cuisines' && typeChosen === 'All Types') {
+  //     filteredCountries = recipes
+  //   } else if (cuisineChosen === 'All Cuisines') {
+  //     filteredCountries = recipes.filter(country => country.name.common.toLowerCase().includes(typeCountry.toLowerCase()))
+  //   } else if (typeCountry === '') {
+  //     filteredCountries = recipes.filter(country => country.region.toLowerCase().includes(countryRegion.toLowerCase()))
+  //   } else {
+  //     filteredCountries = recipes.filter(country => country.name.common.toLowerCase().includes(typeCountry.toLowerCase()) && country.region.toLowerCase().includes(countryRegion.toLowerCase()))
+  //   }
+  //   setFilterCountriesDisplay(filteredCountries)
+  //   console.log(filteredCountries)
+
+  // }, [recipes, countryRegion, typeCountry])
+
+
+
   function getRecipes(){
     // console.log(recipes.length)
 
@@ -152,27 +188,31 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Container className='mt-4'>
-        <Row>
-          {recipes.length ?
-            <>
-              {recipes.map(recipe => {
-                const { idMeal } = recipe
-                return (
-                  <Col key={idMeal} md="10" lg="4" className='wine mb-4'>
-                    <Card className='h-100'>
-                      <p>{idMeal}</p>
-                    </Card>
-                  </Col>
-                )
-              })}
-            </>
-            :
-            <h2 className="text-center">
-              {recipes.length}
-            </h2>
-          }
-        </Row>
+      <Container className='recipes-container'>
+        {recipes.length ? 
+          <>
+            {recipes.map(recipe  => {
+              const { idMeal, strMeal, strMealThumb, strCategory, strArea } = recipe
+              return (
+                <Col key={idMeal} className="mt-4">
+                  <Card className="h-100">
+                    <div className="card-img m-auto">
+                      <img src={strMealThumb} alt={strMeal} />
+                    </div>
+                    <Card.Footer>
+                      <div className="card-txt">
+                        {strMeal}<br />
+                        <span>{strCategory}, {strArea}</span>
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              )
+            })} 
+          </>    
+          :
+          <p>{recipes.length}</p>
+        }
       </Container>
     </>
   )

@@ -1,47 +1,95 @@
-.hero{
-    flex-grow: 1;
+// .hero{
+//     flex-grow: 1;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     .hero-overlay{
+//       color: #fff;
+//       background-color: grey;
+//       padding: 30px;
+//       border-radius: 8px;
+//       display: flex;
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: center;
+//     }
+//     button{
+//         width: 100px;
+//     }
+//   }
+
+//   h1{
+//       text-align: center;
+//   }
+
+// .select-boxes{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+// }
+
+// select{
+//     margin: 20px;
+//     height: 50px;
+//     width: 200px;
+//     border-radius: 5px;
+//     font-size: 18px;
+//     padding-left: 10px;
+// }
+
+// .filter-section{
+//     flex-grow: 1;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+.recipes-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
 
-    .hero-overlay{
-      color: #fff;
-      background-color: grey;
-      padding: 30px;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    button{
-        width: 100px;
-    }
-  }
-
-  h1{
-      text-align: center;
-  }
-
-.select-boxes{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }
 
-select{
-    margin: 20px;
-    height: 50px;
-    width: 200px;
-    border-radius: 5px;
-    font-size: 18px;
-    padding-left: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+.card-img{
+  width: 225px;
+  margin: 0 auto;
+  img{
+      width:150px;
+    padding: 5px 5px 5px 5px;
+  }
 }
 
-.filter-section{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.card{
+  background-color: white;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  border: 1px solid #BFBFBF;
+  border-radius: 0%;
+}
+
+.card-footer {
+  font-family: 'Reenie Beanie', cursive;
+  height: 90px;
+  border: none;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .card-txt{
+    color: black;
+    width: 100%;
+    span{
+      font-size: 14px;
+    }
+  }
+  
+}
+
+.h-100{
+    width:200px
 }
