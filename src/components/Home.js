@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
 const Home = () => {
 
@@ -54,21 +58,6 @@ const Home = () => {
     getData()
   }, [])
 
-  //* get array for options to filter recipes by
-  function filterFood(e) {
-    if (e.target.name === 'cuisine') {
-      const cuisine = e.target.value
-      setCuisineChoosen(cuisine)
-      filterFoodArray = [cuisine, typeChosen]
-      console.log(filterFoodArray)
-    } else if (e.target.name === 'type') {
-      const type = e.target.value
-      setTypeChosen(type)
-      filterFoodArray = [cuisineChosen, type]
-      console.log(filterFoodArray)
-    }
-  }
-
 
   //* get all recipes
   useEffect(() => {
@@ -88,7 +77,7 @@ const Home = () => {
                 try {
                   const recipeObj = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
                   recipeList.push(recipeObj.data.meals[0]) // push recipe into recipeList array
-                  console.log(recipeObj.data.meals)
+                  // console.log(recipeObj.data.meals)
                 } catch (err) {
                   setIsError({ error: true, message: err.message })
                 }
@@ -103,21 +92,40 @@ const Home = () => {
           }
         }
 
-        getIds() // run id function to ge the id in order to get the recipe
-        setRecipes(recipeList)
+        getIds()
       })
+      // run id function to ge the id in order to get the recipe
+      setRecipes(recipeList)
+      console.log('recipe array', recipeList)
+      console.log('recipe length', recipeList.length)
     }
   }, [categories])
 
-  function getRecipes(){
 
+  //* get array for options to filter recipes by
+  function filterFood(e) {
+    if (e.target.name === 'cuisine') {
+      const cuisine = e.target.value
+      setCuisineChoosen(cuisine)
+      filterFoodArray = [cuisine, typeChosen]
+      console.log(filterFoodArray)
+    } else if (e.target.name === 'type') {
+      const type = e.target.value //
+      setTypeChosen(type)
+      filterFoodArray = [cuisineChosen, type]
+      console.log(filterFoodArray)
+    }
+  }
+
+  function getRecipes(){
+    // console.log(recipes.length)
 
     navigate('/recipes')
   }
 
   return (
     <>
-      <div className='hero text-center'>
+      {/* <div className='hero text-center'>
         <div className='hero-overlay'>
           <h1>Home</h1>
           <div className='select-boxes'>
@@ -144,9 +152,30 @@ const Home = () => {
           </div>
           <button onClick={getRecipes}>Get Recipes</button>
         </div>
-      </div>
+      </div> */}
+      <Container className='mt-4'>
+        <Row>
+          {recipes && recipes.length ?
+            <>
+              {recipes.map(recipe => {
+                const { idMeal } = recipe
+                return (
+                  <Col key={idMeal} md="10" lg="4" className='wine mb-4'>
+                    <Card className='h-100'>
+                      <p>{idMeal}</p>
+                    </Card>
+                  </Col>
+                )
+              })}
+            </>
+            :
+            <h2 className="text-center">
+              {recipes.length}
+            </h2>
+          }
+        </Row>
+      </Container>
     </>
-    
   )
 }
 
