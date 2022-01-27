@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -13,7 +13,7 @@ const Home = () => {
   const [ recipes, setRecipes ] = useState([])
   const [ filterRecipesDisplay, setFilterRecipesDisplay ] = useState([])
 
-  let recipesFiltered
+
 
   // const [ categoryFilter, setCategoryFilter ] = useState([])
   // const [ areaFilter, setAreaFilter ] = useState([])
@@ -23,8 +23,8 @@ const Home = () => {
     message: '',
   })
 
-  const [cuisineChosen, setCuisineChoosen] = useState('')
-  const [typeChosen, setTypeChosen] = useState('')
+  const [cuisineChosen, setCuisineChoosen] = useState('All Cuisines')
+  const [typeChosen, setTypeChosen] = useState('All Types')
 
   let filterFoodArray
   
@@ -119,21 +119,21 @@ const Home = () => {
       console.log(filterFoodArray)
     }
   }
-
   useEffect(() => {
-    
-    if (recipes.length && ( typeChosen.length || cuisineChosen.length )) {
-      
-      const appliedFilters = recipes.filter(item => {
-        return (
-          (item.strCategory === typeChosen || typeChosen === 'All Types') &&
-          (item.strArea === cuisineChosen || cuisineChosen === 'All Cuisines')
-        )
-      })
-      console.log(appliedFilters)
-      setFilterRecipesDisplay(appliedFilters)
-      console.log(appliedFilters)
+    let recipesFiltered
+
+    if (cuisineChosen === 'All Cuisines' && typeChosen === 'All Types') {
+      recipesFiltered = recipes
+    } else if (cuisineChosen === 'All Cuisines') {
+      recipesFiltered = recipes.filter(item => item.strCategory === typeChosen)
+    } else if (typeChosen === 'All Types') {
+      recipesFiltered = recipes.filter(item => item.strArea === cuisineChosen)
+    } else {
+      recipesFiltered = recipes.filter(item => (item.strCategory === typeChosen && item.strArea === cuisineChosen))
     }
+    setFilterRecipesDisplay(recipesFiltered)
+    console.log(recipesFiltered)
+
   }, [recipes, cuisineChosen, typeChosen])
 
   // useEffect(() => {
@@ -189,29 +189,31 @@ const Home = () => {
         </div>
       </div>
       <Container className='recipes-container'>
-        {recipes.length ? 
+        {filterRecipesDisplay.length ? 
           <>
-            {recipes.map(recipe  => {
+            {filterRecipesDisplay.map(recipe  => {
               const { idMeal, strMeal, strMealThumb, strCategory, strArea } = recipe
               return (
                 <Col key={idMeal} className="mt-4">
-                  <Card className="h-100">
-                    <div className="card-img m-auto">
-                      <img src={strMealThumb} alt={strMeal} />
-                    </div>
-                    <Card.Footer>
-                      <div className="card-txt">
-                        {strMeal}<br />
-                        <span>{strCategory}, {strArea}</span>
+                  <Link to={`/recipes/${idMeal}`}>
+                    <Card className="h-100">
+                      <div className="card-img m-auto">
+                        <img src={strMealThumb} alt={strMeal} />
                       </div>
-                    </Card.Footer>
-                  </Card>
+                      <Card.Footer>
+                        <div className="card-txt">
+                          {strMeal}<br />
+                          <span>{strCategory}, {strArea}</span>
+                        </div>
+                      </Card.Footer>
+                    </Card>
+                  </Link>
                 </Col>
               )
             })} 
           </>    
           :
-          <p>{recipes.length}</p>
+          <p>{filterRecipesDisplay.length}</p>
         }
       </Container>
     </>
