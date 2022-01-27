@@ -125,7 +125,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <div className='hero text-center'>
+      <div className='hero text-center'>
         <div className='hero-overlay'>
           <h1>Home</h1>
           <div className='select-boxes'>
@@ -150,12 +150,11 @@ const Home = () => {
               })}
             </select>
           </div>
-          <button onClick={getRecipes}>Get Recipes</button>
         </div>
-      </div> */}
+      </div>
       <Container className='mt-4'>
         <Row>
-          {recipes && recipes.length ?
+          {recipes.length ?
             <>
               {recipes.map(recipe => {
                 const { idMeal } = recipe
