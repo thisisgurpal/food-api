@@ -24,6 +24,7 @@
     }
   },
   "rules": {
+    "no-unused-vars": 0,
     "brace-style": "error",
     "camelcase": [
       "error",
