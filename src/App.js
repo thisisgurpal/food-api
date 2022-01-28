@@ -1,7 +1,6 @@
 import React from 'react'
 import SiteNavbar from './components/SiteNavbar'
 import Home from './components/Home'
-import Recipes from './components/Recipes'
 import ChooseFood from './components/ChooseFood'
 import Footer from './components/Footer'
 import './styles/main.scss'
@@ -16,8 +15,7 @@ function App() {
         <SiteNavbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='recipes' element={<Recipes />} />
-          <Route path='recipes/:idMeal' element={<ChooseFood />} />
+          <Route path='/:idMeal' element={<ChooseFood />} />
         </Routes>
         <Footer />
       </BrowserRouter>

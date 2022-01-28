@@ -5,11 +5,14 @@ import Spinner from './utilities/Spinner'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+// import YoutubeImg from ''
 
 const ChooseFood = () => {
 
   // State
   const [ singleRecipe, setSingleRecipe ] = useState(null)
+  const [ recipeMeasures, setRecipeMeasures ] = useState([])
+  const [ recipeIngedients, setRecipeIngedients ] = useState([])
   const [ hasError, setHasError ] = useState({ error: false, message: '' })
 
 
@@ -18,18 +21,29 @@ const ChooseFood = () => {
   console.log(idMeal)
 
   useEffect(() => {
+    // const measureList = []
+    // const ingredientList = []
+
     const getSingleRecipe = async () => {
       try {
         const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
         setSingleRecipe(data.meals[0])
         console.log(Object.entries(data.meals[0]))
-        console.log(data.meals[0].strMeal)
+        console.log(data.meals[0])
+        const measureList = Object.entries(data.meals[0]).filter(item => item[0].includes('Measure') && (item[1] !== ' ') && (item[1] !== '') && (item[1] !== null))
+        const measureListValue = measureList.map(item => item[1])
+        console.log(measureListValue)
+        setRecipeMeasures(measureListValue)
+        const ingredientList = Object.entries(data.meals[0]).filter(item => item[0].includes('Ingredient') && (item[1] !== ' ') && (item[1] !== '') && (item[1] !== null))
+        const ingredientListValue = ingredientList.map(item => item[1])
+        console.log(ingredientList[1])
+        setRecipeIngedients(ingredientListValue)
         console.log(!data.meals[0].strMeasure1)
       } catch (err) {
         setHasError({ error: true, message: err.message })
       }
     }
-
+    
     getSingleRecipe()
     
 
@@ -54,39 +68,30 @@ const ChooseFood = () => {
               <hr />
               <h4><span></span> Ingredients</h4>
               <div className='ingredients'>  
-                {/* <div className='ingredient'>{singleRecipe.strMeasure1} {singleRecipe.strIngredient1}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure2} {singleRecipe.strIngredient2}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure3} {singleRecipe.strIngredient3}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure4} {singleRecipe.strIngredient4}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure5} {singleRecipe.strIngredient5}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure6} {singleRecipe.strIngredient6}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure7} {singleRecipe.strIngredient7}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure8} {singleRecipe.strIngredient8}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure9} {singleRecipe.strIngredient9}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure10} {singleRecipe.strIngredient10}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure11} {singleRecipe.strIngredient11}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure12} {singleRecipe.strIngredient12}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure13} {singleRecipe.strIngredient13}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure14} {singleRecipe.strIngredient14}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure16} {singleRecipe.strIngredient16}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure17} {singleRecipe.strIngredient17}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure18} {singleRecipe.strIngredient18}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure19} {singleRecipe.strIngredient19}</div>
-                <div className='ingredient'>{singleRecipe.strMeasure20} {singleRecipe.strIngredient20}</div> */}
-                {Object.entries(singleRecipe).filter(item => item[0].includes('Ingredient') & item[1] !== '').map((ingredient, index) => {
+                {recipeMeasures.map((ingredient, index) => {
                   return (
-                    <div key={ingredient} className='ingredient'>{`singleRecipe.strMeasure${index}`} {`singleRecipe.strIngredient${index}`}</div>
+                    <div key={index} id={ingredient} className='ingredient'>{recipeIngedients[index]}: {recipeMeasures[index]}</div>
                   )
                 })}
               </div>
-              <hr />
-              <h4><span>🖐</span> Instructions</h4>
+              <hr /> 
+            </Col>
+
+          </div>
+          <div className='instructions-container'>
+            <div className='instructions'>
+              <h4><span>🍲</span> Instructions</h4>
               <p >{singleRecipe.strInstructions}</p>
               <hr />
+            </div>
+            <div className='find-out-more'>
+              <h4><span></span>🔎 Find out more</h4>
+              <div className='source-links'>
+                <div className='source-link'><a href={singleRecipe.strYoutube}>Youtube video recipe</a></div>
+                <div className='source-link'><a href={singleRecipe.strSource}>Source of recipe</a></div>
+              </div>
               <hr />
-            
-            </Col>
+            </div>
           </div>
           <div className='back-to-wines'>
             <Link to="/" className="btn btn-light">Back to home</Link>

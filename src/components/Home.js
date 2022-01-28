@@ -153,13 +153,6 @@ const Home = () => {
   // }, [recipes, countryRegion, typeCountry])
 
 
-
-  function getRecipes(){
-    // console.log(recipes.length)
-
-    navigate('/recipes')
-  }
-
   return (
     <>
       <div className='hero text-center'>
@@ -168,24 +161,20 @@ const Home = () => {
           <h2>Select your preference:</h2>
           <div className='select-boxes'>
             <select name='cuisine' onChange={filterFood}>
-              <option disabled hidden selected>- Select Area -</option>
+              <option className='default-option' hidden>- Select Area -</option>
               <option>All Cuisines</option>
               {areas.map((type, index) => {
                 return (
-                  <>
-                    <option value={type} key={index}>{type}</option>
-                  </>
+                  <option defaultValue={type} key={index}>{type}</option>
                 )
               })}
             </select>
             <select name='type' onChange={filterFood}>
-              <option disabled hidden selected>- Select Type -</option>
+              <option className='default-option' hidden>- Select Type -</option>
               <option>All Types</option>
               {categories.map((type, index) => {
                 return (
-                  <>
-                    <option value={type} key={index}>{type}</option>
-                  </>
+                  <option defaultValue={type} key={index}>{type}</option>
                 )
               })}
             </select>
@@ -200,7 +189,7 @@ const Home = () => {
                 const { idMeal, strMeal, strMealThumb, strCategory, strArea } = recipe
                 return (
                   <Col key={idMeal} className="mt-4">
-                    <Link to={`/recipes/${idMeal}`}>
+                    <Link to={`/${idMeal}`}>
                       <Card className="h-100">
                         <div className="card-img m-auto">
                           <img src={strMealThumb} alt={strMeal} />
