@@ -1,0 +1,82 @@
+.single-meal-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    img{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-right: 35px;
+        width: 350px;
+        box-shadow: 10px 10px 5px rgba(187, 187, 187, 0.5);
+    }
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.back-to-wines{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    a{
+       background-color: rgb(206, 77, 17);
+        color: white;
+        font-size: 20px;
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+}
+
+.btn-light:hover{
+        background-color: rgb(177, 56, 0);
+ }        
+
+
+.desciption{
+    width: 400px;
+    margin-left: 35px;
+}
+
+.ingredients{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.ingredient{
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(83, 83, 83);
+    color: white;
+    border-radius: 5px;
+}
+
+.img-recipe{
+    border-radius: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+
+.meal-show{
+    h2{
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Supermercado One', cursive;
+    }
+}
+
+.individual-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+@media screen and ( max-width: 800px )
+{
+    .single-meal-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}

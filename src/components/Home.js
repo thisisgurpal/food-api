@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Spinner from './utilities/Spinner'
 
 const Home = () => {
 
@@ -23,8 +24,8 @@ const Home = () => {
     message: '',
   })
 
-  const [cuisineChosen, setCuisineChoosen] = useState('All Cuisines')
-  const [typeChosen, setTypeChosen] = useState('All Types')
+  const [cuisineChosen, setCuisineChoosen] = useState('')
+  const [typeChosen, setTypeChosen] = useState('')
 
   let filterFoodArray
   
@@ -122,11 +123,11 @@ const Home = () => {
   useEffect(() => {
     let recipesFiltered
 
-    if (cuisineChosen === 'All Cuisines' && typeChosen === 'All Types') {
+    if ((cuisineChosen === 'All Cuisines' || cuisineChosen === '') && (typeChosen === 'All Types' || typeChosen === '')) {
       recipesFiltered = recipes
-    } else if (cuisineChosen === 'All Cuisines') {
+    } else if (cuisineChosen === 'All Cuisines' || cuisineChosen === '') {
       recipesFiltered = recipes.filter(item => item.strCategory === typeChosen)
-    } else if (typeChosen === 'All Types') {
+    } else if (typeChosen === 'All Types' || typeChosen === '') {
       recipesFiltered = recipes.filter(item => item.strArea === cuisineChosen)
     } else {
       recipesFiltered = recipes.filter(item => (item.strCategory === typeChosen && item.strArea === cuisineChosen))
@@ -163,9 +164,11 @@ const Home = () => {
     <>
       <div className='hero text-center'>
         <div className='hero-overlay'>
-          <h1>Home</h1>
+          <h1>Find your favourite food</h1>
+          <h2>Select your preference:</h2>
           <div className='select-boxes'>
             <select name='cuisine' onChange={filterFood}>
+              <option disabled hidden selected>- Select Area -</option>
               <option>All Cuisines</option>
               {areas.map((type, index) => {
                 return (
@@ -176,6 +179,7 @@ const Home = () => {
               })}
             </select>
             <select name='type' onChange={filterFood}>
+              <option disabled hidden selected>- Select Type -</option>
               <option>All Types</option>
               {categories.map((type, index) => {
                 return (
@@ -189,31 +193,34 @@ const Home = () => {
         </div>
       </div>
       <Container className='recipes-container'>
-        {filterRecipesDisplay.length ? 
-          <>
-            {filterRecipesDisplay.map(recipe  => {
-              const { idMeal, strMeal, strMealThumb, strCategory, strArea } = recipe
-              return (
-                <Col key={idMeal} className="mt-4">
-                  <Link to={`/recipes/${idMeal}`}>
-                    <Card className="h-100">
-                      <div className="card-img m-auto">
-                        <img src={strMealThumb} alt={strMeal} />
-                      </div>
-                      <Card.Footer>
-                        <div className="card-txt">
-                          {strMeal}<br />
-                          <span>{strCategory}, {strArea}</span>
+        {(typeChosen !== '' || cuisineChosen !== '') ? 
+          filterRecipesDisplay.length ? 
+            <>
+              {filterRecipesDisplay.map(recipe  => {
+                const { idMeal, strMeal, strMealThumb, strCategory, strArea } = recipe
+                return (
+                  <Col key={idMeal} className="mt-4">
+                    <Link to={`/recipes/${idMeal}`}>
+                      <Card className="h-100">
+                        <div className="card-img m-auto">
+                          <img src={strMealThumb} alt={strMeal} />
                         </div>
-                      </Card.Footer>
-                    </Card>
-                  </Link>
-                </Col>
-              )
-            })} 
-          </>    
+                        <Card.Footer>
+                          <div className="card-txt">
+                            {strMeal}<br />
+                            <span>{strCategory}, {strArea}</span>
+                          </div>
+                        </Card.Footer>
+                      </Card>
+                    </Link>
+                  </Col>
+                )
+              })} 
+            </>    
+            :
+            <h2>No results found :(</h2>
           :
-          <p>{filterRecipesDisplay.length}</p>
+          <p></p>
         }
       </Container>
     </>

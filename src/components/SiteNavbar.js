@@ -10,7 +10,7 @@ const SiteNavbar = () => {
     <Navbar expand="sm" bg="dark">
       <Container>
         <Navbar.Brand>
-          <Link to="/" className='btn-home'>👨‍🍳</Link>
+          <Link to="/" className='btn btn-light'>👩‍🍳</Link>
         </Navbar.Brand>
       </Container>
     </Navbar>
