@@ -27,6 +27,8 @@
   background-color: rgb(177, 56, 0);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 .footer-container{
   height: 30px;
   background-color: rgb(255, 255, 255);
@@ -40,4 +42,5 @@
   text-align: center;
   margin: 0;
   margin-top: 5px;
+  font-family: 'Open Sans', sans-serif;
 }

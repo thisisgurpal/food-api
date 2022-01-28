@@ -218,7 +218,7 @@ const Home = () => {
               })} 
             </>    
             :
-            <h2>No results found :(</h2>
+            <h2 className='no-results'>No results found 😞</h2>
           :
           <p></p>
         }

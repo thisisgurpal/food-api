@@ -24,6 +24,7 @@ const ChooseFood = () => {
         setSingleRecipe(data.meals[0])
         console.log(Object.entries(data.meals[0]))
         console.log(data.meals[0].strMeal)
+        console.log(!data.meals[0].strMeasure1)
       } catch (err) {
         setHasError({ error: true, message: err.message })
       }
@@ -52,10 +53,30 @@ const ChooseFood = () => {
               <p className="lead">{singleRecipe.strArea}</p>
               <hr />
               <h4><span></span> Ingredients</h4>
-              <div className='ingredients'>
+              <div className='ingredients'>  
+                {/* <div className='ingredient'>{singleRecipe.strMeasure1} {singleRecipe.strIngredient1}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure2} {singleRecipe.strIngredient2}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure3} {singleRecipe.strIngredient3}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure4} {singleRecipe.strIngredient4}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure5} {singleRecipe.strIngredient5}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure6} {singleRecipe.strIngredient6}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure7} {singleRecipe.strIngredient7}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure8} {singleRecipe.strIngredient8}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure9} {singleRecipe.strIngredient9}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure10} {singleRecipe.strIngredient10}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure11} {singleRecipe.strIngredient11}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure12} {singleRecipe.strIngredient12}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure13} {singleRecipe.strIngredient13}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure14} {singleRecipe.strIngredient14}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure15} {singleRecipe.strIngredient15}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure16} {singleRecipe.strIngredient16}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure17} {singleRecipe.strIngredient17}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure18} {singleRecipe.strIngredient18}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure19} {singleRecipe.strIngredient19}</div>
+                <div className='ingredient'>{singleRecipe.strMeasure20} {singleRecipe.strIngredient20}</div> */}
                 {Object.entries(singleRecipe).filter(item => item[0].includes('Ingredient') & item[1] !== '').map((ingredient, index) => {
                   return (
-                    <div className='ingredient' key={index}>{ingredient[1]}</div>
+                    <div key={ingredient} className='ingredient'>{`singleRecipe.strMeasure${index}`} {`singleRecipe.strIngredient${index}`}</div>
                   )
                 })}
               </div>
