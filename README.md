@@ -1,20 +1,21 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
+# General Assembly Project 2 - Reciplease
+<img src="https://user-images.githubusercontent.com/97416784/160812981-bd9d0f42-f361-4f6c-bf7f-0a6f1875edcf.JPG" width="1000">
 
-## Using NPM
+# Link
+https://reciplease-thisisgurpal.netlify.app/
+# Brief
 
-`npm run start` or `npm run dev`  to run the development server
+# Technologies used
 
-`npm run build` to create a build directory
+# Controls
 
-## Using Yarn
+# Approach taken
 
-`yarn start` or `yarn dev`  to run the development server
+# Bugs
 
-`yarn build` to create a build directory
+# Challenges
 
-### ⚠️
+# Wins
 
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Contact
+https://www.linkedin.com/in/gurpal-gohler/
