@@ -1,11 +1,11 @@
 # General Assembly Project 2 - Reciplease
-This is an application built using JavaScript and React that allows you to search for your desired food and see how it’s made including details about measurements and ingredients. This project was paired programming for 48 hours. I was responsible for ensuring that the back end was correctly retrieving information from an external API, designing the home page, designing the individual recipe pages and also building the filter functions to choose a recipe.
+This is an application built using JavaScript and React that allows you to search for your desired food and see how it’s made including details about measurements and ingredients. This project was paired programming for 48 hours. I was responsible for ensuring that the back end was correctly retrieving information from an external API, designing the home page, designing the individual recipe pages and also building the filter functions to choose a recipe. You can find the application <a href="https://reciplease-thisisgurpal.netlify.app/">here</a>.
 <h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/160812981-bd9d0f42-f361-4f6c-bf7f-0a6f1875edcf.JPG" width="1000">
 
-# Link
-https://reciplease-thisisgurpal.netlify.app/
-
+# Links
+* Reciplease (Application): https://reciplease-thisisgurpal.netlify.app/
+* Gurpal Gohler (LinkedIn): https://www.linkedin.com/in/gurpal-gohler/
 # Brief
 The brief is to build an application that consumes a public API and has several components.
 
@@ -24,6 +24,16 @@ To start off with this project I began sketch out a wireframe of how we want the
 <img src="https://user-images.githubusercontent.com/97416784/160825809-1301c381-18bd-4e50-9514-97fc0dd6cca8.JPG" width="1000">
 
 # Walk through
+<h3>Home page</h3>
+<img src="https://user-images.githubusercontent.com/97416784/161247849-c7301fdc-2450-44c8-b78f-7154269a8de9.JPG" width="1000">
+<h3>Choose Area and Type of food</h3>
+<img src="https://user-images.githubusercontent.com/97416784/161248138-34a20bf4-ac85-4677-9881-98f9e5e38952.JPG" width="1000">
+<h3>Recipe page</h3>
+<img src="https://user-images.githubusercontent.com/97416784/161247915-5d678cc4-b67b-4ba4-abd8-2ca622008b36.JPG" width="1000">
+<img src="https://user-images.githubusercontent.com/97416784/161247951-26ce993b-4c53-4ce8-81fe-408c5b843149.JPG" width="1000">
+
+
+
 
 # Code examples
 <h3>Consuming public API</h3>
@@ -42,6 +52,3 @@ Working with multiple public API's to retrieve the data needed.
 
 # Wins
 Creating an application that help others find recipes they enjoy whilst premoting home cooking. Learning to use react and axios has been very beneficial.
-
-# Contact
-https://www.linkedin.com/in/gurpal-gohler/
