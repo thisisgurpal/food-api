@@ -13,11 +13,16 @@ The brief is to build an application that consumes a public API and has several 
 * Create app - `npx create-react-app APP_NAME`
 * Go into folder created - `CD APP_NAME`
 * Clone to GitHub repository - `git remote add origin git@github.com:YOUR_GITHUB_USERNAME/YOUR_REPO.git`
-* Install yarn - `yarn`
+* Install dependencies - `yarn`
 * Start server - `yarn start`
 
 # Technologies used
-React, JavaScript, Axios, SASS, React Router DOM.
+* React
+* JavaScript
+* Axios
+* SCSS
+* CSS
+* React Router DOM
 
 # Plan
 To start off with this project I began sketch out a wireframe of how we want the application to look, what features are needed and also how the data is structured.
