@@ -4,8 +4,11 @@ This is an application built using JavaScript and React that allows you to searc
 <img src="https://user-images.githubusercontent.com/97416784/160812981-bd9d0f42-f361-4f6c-bf7f-0a6f1875edcf.JPG" width="1000">
 
 # Links
-* Reciplease (Application): https://reciplease-thisisgurpal.netlify.app/
-* Gurpal Gohler (LinkedIn): https://www.linkedin.com/in/gurpal-gohler/
+<h3>Application</h3>
+Reciplease: https://reciplease-thisisgurpal.netlify.app/
+<h3>Contact</h3>
+Gurpal Gohler (LinkedIn): https://www.linkedin.com/in/gurpal-gohler/
+
 # Brief
 The brief is to build an application that consumes a public API and has several components.
 
