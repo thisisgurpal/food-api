@@ -19,7 +19,7 @@ The brief is to build an application that consumes a public API and has several 
 * Install dependencies - `yarn`
 * Start server - `yarn start`
 
-# Technologies used
+# Technologies and tools used
 * React
 * JavaScript
 * Axios
