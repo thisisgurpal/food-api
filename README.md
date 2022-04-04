@@ -26,6 +26,7 @@ The brief is to build an application that consumes a public API and has several 
 * SCSS
 * CSS
 * React Router DOM
+* Visual Studio Code
 
 # Plan
 To start off with this project I began sketch out a wireframe of how we want the application to look, what features are needed and also how the data is structured.
