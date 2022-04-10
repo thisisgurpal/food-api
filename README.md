@@ -37,7 +37,7 @@ Now we have the idea, we began searching for public API’s to use that will be 
 
 # Walk through
 <h3>Home page</h3>
-Initially when the application loads there are no recipes shows, only the filters where you will have to choose your preferences. However in the background we made sure that all of the meals from the API are saved into a state, so they are ready when the user filteres the dropdowns. The home page box has a background image and a linear gradient so you are easily able to read text over the top of it. For the dropdown options for area and type we took the distinct values and used those as the options.
+Initially when the application loads there are no recipes shows, only the filters where you will have to choose your preferences. However in the background we made sure that all of the meals from the API are saved into a react state, so they are ready when the user filters the dropdowns. The home page box has a background image and a linear gradient so you are easily able to read text over the top of it. For the dropdown options for area and type we took the distinct values and used those as the options.
 <h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/161247849-c7301fdc-2450-44c8-b78f-7154269a8de9.JPG" width="1000">
 <h3>Choose Area and Type of food</h3>
