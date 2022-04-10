@@ -29,13 +29,20 @@ The brief is to build an application that consumes a public API and has several 
 * Visual Studio Code
 
 # Plan
-To start off with this project I began sketch out a wireframe of how we want the application to look, what features are needed and also how the data is structured.
+When starting this project we both shared to each other any ideas we had for this application we were going to build. In both of our lists we had an idea of developing a recipe application, as this was the case we went forward with this idea. 
+
+Now we have the idea, we began searching for public API’s to use that will be suitable for us. We knew that we wanted images, recipes information, ingredients and also a way to filter the recipes. In our case we found an API that tells us where the recipe is from and what type of food the recipes has in it, this information we used as our filters. After this we began wire framing the application, thinking about how we wanted it to look. 
+<h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/160825809-1301c381-18bd-4e50-9514-97fc0dd6cca8.JPG" width="1000">
 
 # Walk through
 <h3>Home page</h3>
+Initially when the application loads there are no recipes shows, only the filters where you will have to choose your preferences. However in the background we made sure that all of the meals from the API are saved into a state, so they are ready when the user filteres the dropdowns. The home page box has a background image and a linear gradient so you are easily able to read text over the top of it. For the dropdown options for area and type we took the distinct values and used those as the options.
+<h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/161247849-c7301fdc-2450-44c8-b78f-7154269a8de9.JPG" width="1000">
 <h3>Choose Area and Type of food</h3>
+When the user has chosen their preference of area or type of food, the total number of meals state is filtered and saved in another in a filtered meals state. This is then used to display the meals below. For example in this image you will see recipes for Vegetarian Indian food in relation to the dropdown choices. If you need to change the filters, the filtered meals state will also change accordingly.
+<h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/161248138-34a20bf4-ac85-4677-9881-98f9e5e38952.JPG" width="1000">
 <h3>Recipe page</h3>
 <img src="https://user-images.githubusercontent.com/97416784/161247915-5d678cc4-b67b-4ba4-abd8-2ca622008b36.JPG" width="1000">
