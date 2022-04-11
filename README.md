@@ -45,6 +45,10 @@ When the user has chosen their preference of area or type of food, the values ar
 <h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/161248138-34a20bf4-ac85-4677-9881-98f9e5e38952.JPG" width="1000">
 <h3>Recipe page</h3>
+For the recipe page to get all the details of the individual recipe we need to get the meal id and use it in a get request. To get the meal id there is a method called useParams from React Router DOM which will help us do this, and now we use this value in the get request to retrieve the recipe details which will be saved into a state. 
+<h3></h3>
+The data for the recipe is now used and styled to show the meal name, origin, picture, ingredients, instructions and links to find out more. The ingredients section has two parts to it, the ingredients and then the measurements. Both of these are saved into a state and then displayed by using the map array method.
+<h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/161247915-5d678cc4-b67b-4ba4-abd8-2ca622008b36.JPG" width="1000">
 <img src="https://user-images.githubusercontent.com/97416784/161247951-26ce993b-4c53-4ce8-81fe-408c5b843149.JPG" width="1000">
 
