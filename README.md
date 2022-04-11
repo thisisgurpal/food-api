@@ -57,10 +57,12 @@ The data for the recipe is now used and styled to show the meal name, origin, pi
 
 # Code examples
 <h3>Consuming public API</h3>
-To consume the public API we used an Axios request. This API wasn't the easiest to use, to retrieve the information needed we had to use multiple API's and therefore an Axios request inside of another Axios request.
+To consume the public API we used an Axios request. This API wasn't the easiest to use as we had to make one get request in order to retrive the meal id's, and another to use these id so we can get the details about the recipe. Therefore we put an Axios get request inside of another Axios get request.
 <h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/160827106-2a65726b-8b1e-45b8-a8b1-5fbc39c09696.JPG" width="1000">
-To filter the data depending on the user's needs I created two drop downs that allows you to filter by cuisine and type of food.
+To filter the food using the dropdowns I created a function that will determine which option has been chosen by giving the select tag a name and then using an if statement to know which dropdown is being changed. The chosen option will then get saved to a state, everytime the filters are changed the states are also updated.
+
+Each time these area and type of food states are updated the recipes filtered state also gets updates which hence updates the recipes shown on the page. In the useEffect you can see the dependencies are recipes, cuisineChosen and typeChosen. Inside of the useEffect is an if statement that will use the current filter choices and then use the filter srray method to filter the total recipes state.
 <h3></h3>
 <img src="https://user-images.githubusercontent.com/97416784/160828059-d0d17cfd-e492-4d45-abd0-c3c52c258573.JPG" width="1000">
 
