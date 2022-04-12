@@ -76,6 +76,7 @@ Another takeaway for me was using React Router DOM to navigate through to differ
 I further was not experienced in using react states to hold the data. I found it hard to grasp at first how to use these states but as I learnt more about it I understood how to create states, update them and interact with them.
 <h3></h3>
 The biggest challenge on this project is having to use an Axios request inside of another one, due to the structure of the public API. The API required us to first get the meal id's and then use those id's in another request to get the details of the meal. We ended up using the forEach array method to do this and then pushing each meal into an array, once all the meals are in the array we then saved it to a state. 
+<h3></h3>
 
 Another challenge was displaying the measurements and ingredient on the single recipe page, these measurements were in the API like so:
 * Measurement1
