@@ -31,7 +31,7 @@ The brief is to build an application that consumes a public API and has several 
 # Plan
 When starting this project we both shared to each other any ideas we had for this application we were going to build. In both of our lists we had an idea of developing a recipe application, as this was the case we went forward with this idea. 
 
-Now we have the idea, we began searching for public API’s to use that will be suitable for us. We knew that we wanted images, recipes information, ingredients and also a way to filter the recipes. In our case we found an API that tells us where the recipe is from and what type of food the recipes has in it, this information we used as our filters. After this we began wire framing the application on Excalidraw (whiteboard tool), thinking about how we wanted it to look. 
+Now we had the idea, we began searching for public API’s to use that will be suitable for us. We knew that we wanted images, recipes information, ingredients and also a way to filter the recipes. In our case we found an API (https://www.themealdb.com/) that tells us where the recipe is from and what type of food the recipes has in it, this information we used as our filters. After this we began wire framing the application on Excalidraw (whiteboard tool), thinking about how we wanted it to look. 
 
 To work together on this project we decided to work on the code together using a live share feature on VS code. This worked well for us as it allowed us to work out problems together and also have input into each section of the application. 
 <h3></h3>
@@ -89,3 +89,5 @@ The ingredients were in the API like so:
 * ...
 
 The measurement 1 was related to the ingredient 1. The issue was that if some of these fields didn't have any data, they might have a space or have the value Null. What I had to do was an if statement checking which fields are not missing, do not have a space and are not Null, then use only the others ones to display on the page.
+
+As a future feature to add is a text search box as well as the dropdown options. This will make it easier to search for recipes. I would also like to include a section that finds the cheapest options for the users to find the ingredients in the recipes. I think this would be useful for users who are trying to save and cut costs whilst making some tasty food!
